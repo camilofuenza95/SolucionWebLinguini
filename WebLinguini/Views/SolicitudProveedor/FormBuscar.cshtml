@@ -33,7 +33,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index", "Home")"">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-utensils"></i>
                 </div>
@@ -60,11 +60,11 @@
             <div class="sidebar-heading">
                 Menús
             </div>
-            @{
+            @{ 
                 string id = (Session["rol"].ToString());
                 int rol = Convert.ToInt32(id);
 
-            }
+             }
             @if (rol == 1)
             {
             <!-- Nav Item - Carta -->
@@ -77,7 +77,6 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="@Url.Action("FormAgregar", "Carta")">Agregar</a>
                             <a class="collapse-item" href="@Url.Action("Listar", "Carta")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("FormActualizar", "Carta")">Actualizar</a>
                             <a class="collapse-item" href="@Url.Action("FormBuscar", "Carta")">Buscar</a>
                         </div>
                     </div>
@@ -109,6 +108,19 @@
                     </div>
                 </li>
 
+                <!-- Nav Item - Categoría -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse40" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Inventario</span>
+                    </a>
+                    <div id="collapse40" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="@Url.Action("Listar", "Inventario")">Listar</a>
+                        </div>
+                    </div>
+                </li>
+
             <!-- Nav Item - Categoría -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapseTwo">
@@ -117,9 +129,7 @@
                     </a>
                     <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="@Url.Action("FormAgregar", "Comprobante")">Agregar</a>
                             <a class="collapse-item" href="@Url.Action("Listar", "Comprobante")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("FormActualizar", "Comprobante")">Actualizar</a>
                             <a class="collapse-item" href="@Url.Action("FormBuscar", "Comprobante")">Buscar</a>
                         </div>
                     </div>
@@ -135,12 +145,12 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="@Url.Action("FormAgregar", "DetalleCarta")">Agregar</a>
                             <a class="collapse-item" href="@Url.Action("Listar", "DetalleCarta")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("FormActualizar", "DetalleCarta")">Actualizar</a>
                             <a class="collapse-item" href="@Url.Action("FormBuscar", "DetalleCarta")">Buscar</a>
                         </div>
                     </div>
                 </li>
 
+                
             <!-- Nav Item - Empleado -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse8" aria-expanded="true" aria-controls="collapseTwo">
@@ -188,10 +198,8 @@
                     </a>
                     <div id="collapse11" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="@Url.Action("FormAgregar", "Mesa")">Agregar</a>
                             <a class="collapse-item" href="@Url.Action("Listar", "Mesa")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("FormActualizar", "Mesa")">Actualizar</a>
-                            <a class="collapse-item" href="@Url.Action("Buscar", "Mesa")">Buscar</a>
+                            <a class="collapse-item" href="@Url.Action("FormBuscar", "Mesa")">Buscar</a>
                         </div>
                     </div>
                 </li>
@@ -204,10 +212,7 @@
                     </a>
                     <div id="collapse12" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="@Url.Action("FormAgregar", "Orden")">Agregar</a>
                             <a class="collapse-item" href="@Url.Action("Listar", "Orden")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("FormActualizar", "Orden")">Actualizar</a>
-                            <a class="collapse-item" href="@Url.Action("FormBuscar", "Orden")">Buscar</a>
                         </div>
                     </div>
                 </li>
@@ -220,8 +225,8 @@
                     </a>
                     <div id="collapse13" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="@Url.Action("FormAgregar", "PedidoProveedor")">Agregar</a>
                             <a class="collapse-item" href="@Url.Action("Listar", "PedidoProveedor")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("Buscar", "PedidoProveedor")">Buscar</a>
                         </div>
                     </div>
                 </li>
@@ -248,7 +253,6 @@
                     <div id="collapse15" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="@Url.Action("Listar", "Proveedor")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("Buscar", "Proveedor")">Buscar</a>
                         </div>
                     </div>
                 </li>
@@ -261,39 +265,7 @@
                     </a>
                     <div id="collapse16" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="@Url.Action("FormAgregar", "Reserva")">Agregar</a>
                             <a class="collapse-item" href="@Url.Action("Listar", "Reserva")">Listar</a>
-                        </div>
-                    </div>
-                </li>
-
-            <!-- Nav Item - Rol -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse17" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Rol</span>
-                    </a>
-                    <div id="collapse17" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="@Url.Action("FormAgregar", "Rol")">Agregar</a>
-                            <a class="collapse-item" href="@Url.Action("Listar", "Rol")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("FormActualizar", "Rol")">Actualizar</a>
-                            <a class="collapse-item" href="@Url.Action("FormBuscar", "Rol")">Buscar</a>
-                        </div>
-                    </div>
-                </li>
-
-            <!-- Nav Item - Solicitud Proveedor -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse18" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Solicitud Proveedor</span>
-                    </a>
-                    <div id="collapse18" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="@Url.Action("FormAgregar", "SolicitudProveedor")">Agregar</a>
-                            <a class="collapse-item" href="@Url.Action("Listar", "SolicitudProveedor")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("FormBuscar", "SolicitudProveedor")">Buscar</a>
                         </div>
                     </div>
                 </li>
@@ -315,14 +287,14 @@
             {
             <!-- Nav Item - Pedido Proveedor -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse20" aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse13" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Pedido Proveedor</span>
                     </a>
-                    <div id="collapse20" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div id="collapse13" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="@Url.Action("FormAgregar", "PedidoProveedor")">Agregar</a>
                             <a class="collapse-item" href="@Url.Action("Listar", "PedidoProveedor")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("Buscar", "PedidoProveedor")">Buscar</a>
                         </div>
                     </div>
                 </li>
@@ -336,21 +308,6 @@
                     <div id="collapse21" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="@Url.Action("Listar", "Proveedor")">Listar</a>
-                        </div>
-                    </div>
-                </li>
-
-            <!-- Nav Item - Solicitud Proveedor -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse22" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Solicitud Proveedor</span>
-                    </a>
-                    <div id="collapse22" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="@Url.Action("FormAgregar", "SolicitudProveedor")">Agregar</a>
-                            <a class="collapse-item" href="@Url.Action("Listar", "SolicitudProveedor")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("FormBuscar", "SolicitudProveedor")">Buscar</a>
                         </div>
                     </div>
                 </li>
@@ -370,18 +327,6 @@
             }
             else if (rol == 4)
             {
-            <!-- Nav Item - Caja -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse24" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Caja</span>
-                    </a>
-                    <div id="collapse24" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="@Url.Action("Listar", "Caja")">Listar</a>
-                        </div>
-                    </div>
-                </li>
 
                 <!-- Nav Item - Comprobante -->
                 <li class="nav-item">
@@ -391,9 +336,8 @@
                     </a>
                     <div id="collapse35" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="@Url.Action("Agregar", "Comprobante")">Agregar</a>
                             <a class="collapse-item" href="@Url.Action("Listar", "Comprobante")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("Eliminar", "Comprobante")">Eliminar</a>
+                            <a class="collapse-item" href="@Url.Action("Buscar", "Comprobante")">Buscar</a>
                         </div>
                     </div>
                 </li>
@@ -478,7 +422,6 @@
                     <div id="collapse28" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="@Url.Action("Listar", "Mesa")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("Buscar", "Mesa")">Buscar</a>
                         </div>
                     </div>
                 </li>
@@ -496,27 +439,31 @@
                     </div>
                 </li>
             }
-
-
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+            
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <!--<div class="sidebar-heading">
                 Extras
-            </div>
+            </div>-->
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Estadísticas</span>
                 </a>
-            </li>
+            </li>-->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("FAQs", "Home")" aria-expanded="true" >
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>FAQs</span>
+                </a>
+            </li>
+            <br />
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -540,7 +487,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <!--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar por..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -549,18 +496,18 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form>-->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
+                        <!--<li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <!--<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
                                         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -572,7 +519,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </li>
+                        </li>-->
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -629,7 +576,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
+                                
                                 @if (Session["username"] != null)
                                 {
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">
@@ -641,14 +588,14 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <!--<a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfil
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Configuración
-                                </a>
+                                </a>-->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

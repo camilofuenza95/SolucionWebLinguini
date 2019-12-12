@@ -31,8 +31,11 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
+            <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index", "Home")" ">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index", "Home")"">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-utensils"></i>
                 </div>
@@ -59,11 +62,11 @@
             <div class="sidebar-heading">
                 Menús
             </div>
-            @{
+            @{ 
                 string id = (Session["rol"].ToString());
                 int rol = Convert.ToInt32(id);
 
-            }
+             }
             @if (rol == 1)
             {
             <!-- Nav Item - Carta -->
@@ -149,6 +152,7 @@
                     </div>
                 </li>
 
+                
             <!-- Nav Item - Empleado -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse8" aria-expanded="true" aria-controls="collapseTwo">
@@ -264,22 +268,6 @@
                     <div id="collapse16" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="@Url.Action("Listar", "Reserva")">Listar</a>
-                        </div>
-                    </div>
-                </li>
-
-            <!-- Nav Item - Rol -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse17" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Rol</span>
-                    </a>
-                    <div id="collapse17" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="@Url.Action("FormAgregar", "Rol")">Agregar</a>
-                            <a class="collapse-item" href="@Url.Action("Listar", "Rol")">Listar</a>
-                            <a class="collapse-item" href="@Url.Action("FormActualizar", "Rol")">Actualizar</a>
-                            <a class="collapse-item" href="@Url.Action("FormBuscar", "Rol")">Buscar</a>
                         </div>
                     </div>
                 </li>
@@ -453,16 +441,13 @@
                     </div>
                 </li>
             }
-
-
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+            
 
             <!-- Heading -->
             <!--<div class="sidebar-heading">
                 Extras
             </div>-->
+
             <!-- Nav Item - Charts -->
             <!--<li class="nav-item">
                 <a class="nav-link" href="charts.html">
@@ -470,8 +455,17 @@
                     <span>Estadísticas</span>
                 </a>
             </li>-->
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("FAQs", "Home")" aria-expanded="true" >
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>FAQs</span>
+                </a>
+            </li>
+            <br />
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -505,109 +499,112 @@
                             </div>
                         </div>
                     </form>-->
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <!--<li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                    <!--<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                            <form class="form-inline mr-auto w-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <!--<li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <!--<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                    </li>-->
-                    <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bell fa-fw"></i>
-                            <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter">3+</span>
-                        </a>
-                        <!-- Dropdown - Alerts -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                            <h6 class="dropdown-header">
-                                Alertas
-                            </h6>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-primary">
-                                        <i class="fas fa-file-alt text-white"></i>
+                                </form>
+                            </div>
+                        </li>-->
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alertas
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">Noviembre 28, 2019</div>
-                                    <span class="font-weight-bold">Hay un nuevo reporte mensual para que lo puedas visualizar!</span>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-success">
-                                        <i class="fas fa-donate text-white"></i>
+                                    <div>
+                                        <div class="small text-gray-500">Noviembre 28, 2019</div>
+                                        <span class="font-weight-bold">Hay un nuevo reporte mensual para que lo puedas visualizar!</span>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">Noviembr 21, 2019</div>
-                                    Mira las ganancias adquiridas en el último mes!
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-warning">
-                                        <i class="fas fa-exclamation-triangle text-white"></i>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">Noviembre 15, 2019</div>
-                                    Se detectó falta de stock en ciertos productos
-                                </div>
+                                    <div>
+                                        <div class="small text-gray-500">Noviembr 21, 2019</div>
+                                        Mira las ganancias adquiridas en el último mes!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">Noviembre 15, 2019</div>
+                                        Se detectó falta de stock en ciertos productos
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar todas las alertas</a>
+                            </div>
+                        </li>
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                
+                                @if (Session["username"] != null)
+                                {
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                        @Session["username"].ToString()
+                                    </span>
+                                }
+
+                                <img class="img-profile rounded-circle" src="https://cdn2.iconfinder.com/data/icons/user-icon-2-1/100/user_5-15-512.png">
                             </a>
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar todas las alertas</a>
-                        </div>
-                    </li>
-
-
-                    <div class="topbar-divider d-none d-sm-block"></div>
-
-                    <!-- Nav Item - User Information -->
-                    <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                            @if (Session["username"] != null)
-                            {
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                    @Session["username"].ToString()
-                                </span>
-                            }
-
-                            <img class="img-profile rounded-circle" src="https://cdn2.iconfinder.com/data/icons/user-icon-2-1/100/user_5-15-512.png">
-                        </a>
-                        <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <!--<a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Perfil
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Configuración
-                            </a>-->
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Salir
-                            </a>
-                        </div>
-                    </li>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <!--<a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Perfil
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Configuración
+                                </a>-->
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Salir
+                                </a>
+                            </div>
+                        </li>
 
                     </ul>
 

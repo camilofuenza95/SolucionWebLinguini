@@ -611,18 +611,38 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        @if (Session["username"] != null)
-                        {
-                            <h1 class="h3 mb-0 text-gray-800">
-                                Bienvenido @Session["username"].ToString()</h1>
-                        }                                                
+                    <div class="container">
+						<center>
+						
+							<img src="../img/logo.png" style="width:550px; height:300px;">
+
+                            <br>
+							@if (Session["username"] != null)
+                            {
+                                <strong>
+                                    <h1 class="h3 mb-0" style="color:blue !important;">
+                                        Bienvenido @Session["username"].ToString()
+                                    </h1>
+                                </strong>
+                            }
+
+							<br><br>
+							<h4>Estás en el portal de administración del Restaurant Il Linguini Siglo 21</h4>
+							<h4>Si tienes dudas puedes visitar nuestro FAQs ubicado en el menú de la izquierda.</h4>
+							<br>
+						</center>
                                             
-                        <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
                     </div>
+                    <br /><br />
 
                     <div class="container">
-                        <iframe width="933" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiNjc2ZmNmY2ItYzVhYi00MWRmLWFmZDEtNmNlMmU1YjM5MDVkIiwidCI6ImZjZjY3MDU3LTUwYzktNGFkNC05OGYzLWZmY2E2NGFkZDllOSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>
+						@if (rol == 1 || rol == 4)
+                        {
+                            <center><h3 style="color:blue;">Mira los reportes que tenemos para ti</h3></center>
+							<br>
+                            <iframe width="933" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiNjc2ZmNmY2ItYzVhYi00MWRmLWFmZDEtNmNlMmU1YjM5MDVkIiwidCI6ImZjZjY3MDU3LTUwYzktNGFkNC05OGYzLWZmY2E2NGFkZDllOSIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>
+                        }
+                        
                     </div>
 
                     <!-- Content Row -->
