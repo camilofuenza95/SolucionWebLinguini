@@ -21,6 +21,12 @@ namespace WebLinguini.Controllers
         private ApiRestful detalleCartaApiClient = new ApiRestful();
         static HttpClient client = new HttpClient();
 
+        #region Formularios
+        public ActionResult FormBuscar()
+        {
+            return View(new DetalleCartaViewModel());
+        }
+        #endregion
         #region Listar
         // GET: DetalleCarta
         public ActionResult Listar()

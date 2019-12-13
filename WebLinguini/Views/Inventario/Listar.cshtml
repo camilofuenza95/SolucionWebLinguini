@@ -633,7 +633,7 @@
                                                     <tbody>
                                                         @foreach (var inventario in ViewBag.data)
                                                         {
-                                                            if (inventario.stock < 15 && inventario.stock > 10)
+                                                            if (inventario.stock <= 15 && inventario.stock >= 10)
                                                             {
                                                                 <tr>
                                                                     <td><strong style="color:orange !important;">@inventario.nombreProducto</strong></td>

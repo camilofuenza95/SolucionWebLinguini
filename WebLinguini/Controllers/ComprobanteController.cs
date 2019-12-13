@@ -23,6 +23,7 @@ namespace WebLinguini.Controllers
         private ApiRestful comprobanteApiClient = new ApiRestful();
         static HttpClient client = new HttpClient();
 
+
         // GET: Comprobante
         public ActionResult Listar()
         {
@@ -93,8 +94,10 @@ namespace WebLinguini.Controllers
             try
             {
                 //ViewBag.Result1 = categoriaApiClienat.categorias();
+                DetalleComprobante dc = new DetalleComprobante();
+                dc.idComprobante = c.idComprobante;
 
-                Comprobante model = comprobanteApiClient.buscarComprobante(c);
+                List<DetalleComprobante> model = comprobanteApiClient.buscarDetalleComprobante(dc);
 
                 if (model == null)
                 {
@@ -108,7 +111,7 @@ namespace WebLinguini.Controllers
                 }
 
 
-                return View(model);
+                return View();
             }
             catch
             {
@@ -134,9 +137,13 @@ namespace WebLinguini.Controllers
             List<Comprobante> model = comprobanteApiClient.listarComprobantes();
 
             ViewBag.data = model;
-            if(result == 0)
+            if(result.Equals(""))
             {
                 ViewBag.mensaje = "No se han obtenido ganancias el día de hoy";
+            }
+            else
+            {
+                ViewBag.ok = "Las ganancias del día de hoy son: $" + result;
             }
             
 
@@ -148,39 +155,29 @@ namespace WebLinguini.Controllers
         public static int calcularGanancias()
         {
 
+
             client = null;
             client = new HttpClient();
             string fecha = DateTime.Now.ToString("dd/MM/yyyy");
+            Ganancia cm = new Ganancia();
+            int ganancia = 0;
 
             var url = "http://localhost:8034/api/comprobante/" + fecha + "/calcularGanancias";
-            int list = 0;
+
 
             client.BaseAddress = new Uri(url);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            /*HttpResponseMessage response = client.GetAsync(url).Result;*/
+
             HttpResponseMessage response = client.GetAsync(url).Result;
+            var jsonString = response.Content.ReadAsStringAsync();
+            /*jsonString.Wait();*/
+            ganancia = int.Parse(jsonString.Result);
 
 
 
-            var task = client.GetAsync(url)
-                 .ContinueWith((taskwithresponse) =>
-                 {
-                     try
-                     {
-                         var response2 = taskwithresponse.Result;
-                         var jsonString = response.Content.ReadAsStringAsync();
-                         jsonString.Wait();
-                         list = JsonConvert.DeserializeObject<int>(jsonString.Result);
-                     }
-                     catch
-                     {
-                         list = 0;
-                     }
-                     
+            return ganancia;
 
-                 });
-
-
-            return list;
         }
         #endregion
 

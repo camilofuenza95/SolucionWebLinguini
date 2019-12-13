@@ -11,16 +11,17 @@ namespace WebLinguini.Models.DTO
         [JsonProperty("idDetalleComprobante")]
         public int idDetalleComprobante { get; set; }
 
-        [JsonProperty("cantidad_Orden")]
-        public int cantidad_Orden { get; set; }
+        [JsonProperty("cantidadOrden")]
+        public int cantidadOrden { get; set; }
 
         [JsonProperty("precioDetalleComprobante")]
         public int precioDetalleComprobante { get; set; }
 
-        [JsonProperty("idCarta")]
-        public int idCarta { get; set; }
+        [JsonProperty("nombreCarta")]
+        public string nombreCarta { get; set; }
 
         [JsonProperty("idComprobante")]
         public int idComprobante { get; set; }
+
     }
 }

@@ -170,6 +170,7 @@
     <Compile Include="Models\DTO\DetalleComprobante.cs" />
     <Compile Include="Models\DTO\Empleado.cs" />
     <Compile Include="Models\DTO\Estado.cs" />
+    <Compile Include="Models\DTO\Ganancia.cs" />
     <Compile Include="Models\DTO\Inventario.cs" />
     <Compile Include="Models\DTO\ListaModel.cs" />
     <Compile Include="Models\DTO\LlenarListas.cs" />
@@ -285,6 +286,7 @@
     <Content Include="Views\Inventario\Listar.cshtml" />
     <Content Include="Views\Home\FAQs.cshtml" />
     <Content Include="Views\Carta\FormAgregar.cshtml" />
+    <Content Include="Views\DetalleCarta\FormBuscar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

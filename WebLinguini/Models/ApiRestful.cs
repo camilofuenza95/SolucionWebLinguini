@@ -1115,6 +1115,58 @@ namespace WebLinguini.Models
 
         #endregion
 
+        #region DetalleComprobante
+
+
+        #region Listar
+        public List<DetalleComprobante> buscarDetalleComprobante(DetalleComprobante c)
+        {
+            try
+            {
+                var client = new HttpClient();
+                List<DetalleComprobante> list = new List<DetalleComprobante>();
+                List<DetalleComprobante> list2 = new List<DetalleComprobante>();
+                client.BaseAddress = new Uri(BASE_URL);
+                string url = BASE_URL + "api/detalleComprobante/ " + c.idComprobante +  "/buscarComprobante";
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = client.GetAsync(url).Result;
+
+                var task = client.GetAsync(url)
+                 .ContinueWith((taskwithresponse) =>
+                 {
+                     var response2 = taskwithresponse.Result;
+                     var jsonString = response.Content.ReadAsStringAsync();
+                     jsonString.Wait();
+                     list = JsonConvert.DeserializeObject<List<DetalleComprobante>>(jsonString.Result);
+                     var prueba = list.ToArray();
+                     foreach (var item in prueba)
+                     {
+                         DetalleComprobante dc = new DetalleComprobante();
+                         dc.idDetalleComprobante = item.idDetalleComprobante;
+                         dc.idComprobante = item.idComprobante;
+                         dc.nombreCarta = item.nombreCarta;
+                         dc.precioDetalleComprobante = item.precioDetalleComprobante;
+                         dc.cantidadOrden = item.cantidadOrden;
+
+                         list2.Add(dc);
+                         list.Remove(c);
+                     }
+
+                 });
+
+                task.Wait();
+
+                return list2;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #endregion
+
         #region Estado
 
         #region Listar

@@ -468,9 +468,7 @@ jQuery(document).ready(function ($) {
                 },
                 cantidadSolicitud: {
                     required: true,
-                    number: true,
-                    minlength: 4,
-                    maxlength: 10
+                    number: true
                 },
                 valorDetalleSolicitud: {
                     required: true,
@@ -494,9 +492,7 @@ jQuery(document).ready(function ($) {
                 },
                 cantidadSolicitud: {
                     required: "Debe ingresar la cantidad de la solicitud",
-                    number: "Debe ingresar un número",
-                    minlength: "La cantidad de la solicitud debe ser mayor a {0} caracteres",
-                    maxlength: "La cantidad de la solicitud debe ser menor a {0} caracteres"
+                    number: "Debe ingresar un número"
                 },
                 valorDetalleSolicitud: {
                     required: "Debe ingresar el valor del detalle",

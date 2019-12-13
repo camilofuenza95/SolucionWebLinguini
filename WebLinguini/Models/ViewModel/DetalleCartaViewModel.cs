@@ -9,14 +9,14 @@ namespace WebLinguini.Models.ViewModel
 {
     public class DetalleCartaViewModel
     {
-        [JsonProperty("LstDetalleCartas")]
-        public SelectList LstDetalleCartas { get; set; }
-
-        [JsonProperty("LstProductos")]
-        public SelectList LstProductos { get; set; }
 
         [JsonProperty("idDetalleCarta")]
         public int idDetalleCarta { get; set; }
+
+
+        [JsonProperty("LstDetalleCartas")]
+        public SelectList LstDetalleCartas { get; set; }
+
 
         [JsonProperty("idCarta")]
         public int idCarta { get; set; }
@@ -38,12 +38,8 @@ namespace WebLinguini.Models.ViewModel
         public DetalleCartaViewModel()
         {
             var _rest = new ApiRestful();
-            var lstInfo = _rest.listarCartas();
-            LstDetalleCartas = new SelectList(lstInfo, "idCarta", "nombreCarta");
-
-            var lstInfo2 = _rest.listarProductos();
-            LstProductos = new SelectList(lstInfo2, "idProducto", "nombreProducto");
-
+            var lstInfo = _rest.listarDetalleCarta();
+            LstDetalleCartas = new SelectList(lstInfo, "idDetalleCarta", "idCarta");
 
 
         }
